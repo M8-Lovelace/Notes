@@ -1,7 +1,9 @@
 Ejemplos con TypeScript
+----------------------------------------------------------------
+
 Este repositorio contiene ejemplos de código con TypeScript.
 
-Requisitos
+Requisitos:
 
-Instalar Node.js
-Instalar TypeScript
+	1. Instalar Node.js
+	2. Instalar TypeScript
