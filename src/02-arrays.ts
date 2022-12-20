@@ -1,3 +1,4 @@
+// IIFE: Immediately Invoked Function Expression, evitar contaminar el scope global
 (() => {
   let prices = [1, 2, 3, 1, 2, 3, 212, 'hola', true];
   prices.push(8);
@@ -16,7 +17,6 @@
   let multi = numbers.map(item => item * 2)
   console.log('numbers:', numbers);
   console.log('multiplicados * 2:', multi);
-
 
   // ARRAYS //
   // [number[], string[], Date[], any[]], cualquier tipo de dato//
