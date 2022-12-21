@@ -1,11 +1,11 @@
 // IIFE: Immediately Invoked Function Expression, evitar contaminar el scope global
 (() => {
-  // Nunca usar [String, Boolean, Number, Object, Symbol] (se usan en JS), 
-  // usar los tipos que recomienda TS, en este caso [string, boolean, number, 
+  // Nunca usar [String, Boolean, Number, Object, Symbol] (se usan en JS),
+  // usar los tipos que recomienda TS, en este caso [string, boolean, number,
   // object, symbol]
   // --------------------------------------------------------------------//
 
-  // Si una variable no se va a asignar, se debe tipar siempre o se 
+  // Si una variable no se va a asignar, se debe tipar siempre o se
   // asignará any
   let productInStock: number;
 
@@ -48,7 +48,7 @@
   myDinamicVar = (<number>myDinamicVar).toFixed(2); // Casteo: number
 
   // -------------------------- UNION TYPES------------------------------//
-  // Para poder soportar más de un tipo de dato                          // 
+  // Para poder soportar más de un tipo de dato                          //
   let myUnionType: number | string | boolean | symbol = 16;
 
   // ---------------------------- ALIAS ---------------------------------//
@@ -78,8 +78,8 @@
   let myNull: null = null;
   let myUndefined: undefined = undefined;
 
-  // Optional chaining, puede ser usado en types, parámetros, interfaces, 
-  // para decir que es opcional, si myName llegase a ser nulo, asignaría 
+  // Optional chaining, puede ser usado en types, parámetros, interfaces,
+  // para decir que es opcional, si myName llegase a ser nulo, asignaría
   // 'Sin nombre'
   const lettersName = myName?.length || 'Sin nombre';
 
