@@ -30,12 +30,15 @@
 
   // ------------------------------ ARRAYS ------------------------------//
   // [number[], string[], Date[], any[]], cualquier tipo de dato         //
-  const myArray: number[] = [1, 2, 3, 4, 5];
-  let pricess: (number | string | boolean)[] = ['hola', 2, true];
+  const myArray: number[] = [1, 2, 3, 4, 5]; // Arreglo de números
+  const myNewArray: Array<number> = [1, 2, 3, 4]; // Arreglo de números
+  let prices: (number | string | boolean)[] = ["hola", 2, true]; // Varios
 
   // ------------------------------ TUPLES ------------------------------//
   // [number, string, boolean, Date, any], cualquier tipo de dato        //
-  let person: [number, string, boolean] = [1, 'Steve', true];
+  // Es un arreglo con una dimensión fija, y con más rendimiento
+  let person: [edad: number, nombre: string, estado : boolean] = [1, "Steve", true];
+  let newPerson: [number, string, boolean] = [1, "Steve", true];
 
   // -------------------------------- ANY -------------------------------//
   // puede ir cualquier cosa, mal uso, pero puede ser usado en migración //
