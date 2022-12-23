@@ -3,8 +3,8 @@
 // Librería que tiene soporte para typescript
 import { subDays, format } from "date-fns";
 // Esta librería de lodash no tiene soporte para TS, por lo que el mismo sistema de ts nos ayuda
-// a detectar los types de la librería con npm i -D @types/lodash
-// import _ from 'lodash';
+// a detectar los types de la librería con 'npm i -D @types/lodash' y 'npm i lodash'
+import _ from 'lodash';
 
 // Generamos una fecha con la clase Date
 const date: Date = new Date(2022, 2, 10); // 0:enero, 11:diciembre
@@ -36,5 +36,5 @@ const data = [
 ];
 
 // Agrupamos con la librería groupBy de lodash
-// const rta2 = _.groupBy(data, (item) => item.role);
-// console.log(rta2);
+const rta2 = _.groupBy(data, (item) => item.role);
+console.log(rta2);
