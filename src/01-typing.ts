@@ -23,6 +23,10 @@
   // Infinity]                                                           //
   let myProductPrice: number = 123;
   myProductPrice.toFixed();
+  // Hexadecimal
+  let hex = 0xfff;
+  // Binarios
+  let bin = 0b1010;
 
   // ---------------------------- BOOLEANS ------------------------------//
   // [true, false]                                                       //
