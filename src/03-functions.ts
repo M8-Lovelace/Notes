@@ -5,7 +5,7 @@
     name: string, // Parámetro obligatorio
     lastname: string = 'Fernandez', // Parámetro por defecto
     status?: boolean // Parámetro opcional
-  ): string {
+  ): string { // Retorna un string
     return `1. My name is ${name} ${lastname}, status: ${status ? status : 'Desconocido'}`;
   }
   console.log(returnName('Laura', 'Susano', true));
@@ -16,7 +16,7 @@
     name: string, // Parámetro obligatorio
     lastname: string = 'Fernandez', // Parámetro por defecto
     status?: boolean // Parámetro opcional
-  ): string => {
+  ): string => { // Retorna un string
     return `2. My name is ${name} ${lastname}, status: ${status ? status : 'Desconocido'}`;
   };
   console.log(returnName2('Laura'));

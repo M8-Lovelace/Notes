@@ -70,7 +70,8 @@
   const productID: Sizes = 'L';
 
   // ----------------------------- UNKNOWN ------------------------------//
-  // Solo puede ser asignado a any o a unknown                           //
+  // Solo puede ser asignado a any o a unknown, me fuerza a hacer una    //
+  // verificación de tipos (a diferencia del any)                        //
   let value: unknown;
 
   // ------------------------------ VOID --------------------------------//
