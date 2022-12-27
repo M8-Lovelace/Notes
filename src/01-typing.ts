@@ -14,8 +14,8 @@
 
   // ---------------------------- STRINGS -------------------------------//
   // ["iPhone12", 'iPhone12', `iPhone12`] las comillas                   //
-  let myProductName = 'iPhone14';
-  myProductName = 'change';
+  let myProductName = "iPhone14";
+  myProductName = "change";
   myProductName.toLowerCase();
 
   // ---------------------------- NUMBERS -------------------------------//
@@ -41,14 +41,18 @@
   // ------------------------------ TUPLES ------------------------------//
   // [number, string, boolean, Date, any], cualquier tipo de dato        //
   // Es un arreglo con una dimensión fija, y con más rendimiento
-  let person: [edad: number, nombre: string, estado : boolean] = [1, "Steve", true];
+  let person: [edad: number, nombre: string, estado: boolean] = [
+    1,
+    "Steve",
+    true
+  ];
   let newPerson: [number, string, boolean] = [1, "Steve", true];
 
   // -------------------------------- ANY -------------------------------//
   // puede ir cualquier cosa, mal uso, pero puede ser usado en migración //
   let myDinamicVar: any;
   // Casteo: tipar el any, pero no es recomendable
-  myDinamicVar = 'hola';
+  myDinamicVar = "hola";
   myDinamicVar = (myDinamicVar as string).charAt(0); // Casteo: string
   // Usando genéricos
   myDinamicVar = 2.2333;
@@ -62,12 +66,12 @@
   // Crear tipos propios                                                 //
   type Ids = string | number | boolean;
   // La variable userID solo puede ser de un tipo del type Ids
-  const userId: Ids = '1234';
+  const userId: Ids = "1234";
 
   // -------------------------- LITERAL TYPES ---------------------------//
-  type Sizes = 'S' | 'M' | 'L' | 'XL';
+  type Sizes = "S" | "M" | "L" | "XL";
   // La variable productID solo puede tener valores del type Sizes
-  const productID: Sizes = 'L';
+  const productID: Sizes = "L";
 
   // ----------------------------- UNKNOWN ------------------------------//
   // Solo puede ser asignado a any o a unknown, me fuerza a hacer una    //
@@ -77,27 +81,35 @@
   // ------------------------------ VOID --------------------------------//
   // Sirve para decir que una función no retorna nada                    //
   const returnAvoid = (name?: string): void => {
-    console.log(`${name ? name : 'Unknown'}`);
+    console.log(`${name ? name : "Unknown"}`);
   };
 
   // -------------------------- NULL & UNDEFINED-------------------------//
   // epende el caso de uso para asignar estos valores con union types    //
-  const myName: string | null = 'Edwin';
+  const myName: string | null = "Edwin";
   let myNull: null = null;
   let myUndefined: undefined = undefined;
 
   // Optional chaining, puede ser usado en types, parámetros, interfaces,
   // para decir que es opcional, si myName llegase a ser nulo, asignaría
   // 'Sin nombre'
-  const lettersName = myName?.length || 'Sin nombre';
+  const lettersName = myName?.length || "Sin nombre";
 
   // ------------------------------ NEVER -------------------------------//
   // Significa que el valor nunca va a existir, se usa en funciones que  //
   // que lanzan excepciones                                              //
-  function throwError(errorMsg: string): never {
+  const fail = (errorMsg: string): never => {
     throw new Error(errorMsg);
-  }
+  };
+
+  const example = (input: unknown) => {
+    if (typeof input === "string") {
+      // Verificar si es un string
+      return "It is a string";
+    } else if (Array.isArray(input)) {
+      // Verificar si es un array
+      return "It is a array";
+    }
+    return fail("Not match"); // Se detiene al no hacer match y retorna un error
+  };
 })();
-
-
-
