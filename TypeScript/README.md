@@ -6,8 +6,6 @@
 2. [Technologies](#technologies)
 3. [Installation](#installation)
 4. [Collaboration](#collaboration)
-<!-- 5. [TypeScript Examples](TYPESCRIPT.md) -->
-<!-- 5. [FAQs](#faqs) -->
 
 ## General Info
 
@@ -24,6 +22,8 @@ A list of technologies used within the project:
 
 - [Node JS](https://nodejs.org/en/download/package-manager/#arch-linux): Version 19.3
 - [TypeScript](https://www.typescriptlang.org/): Version 4.9
+- [TS-Node](https://www.npmjs.com/package/ts-node): Version 10.9.1
+- [Nodemon](https://www.npmjs.com/package/nodemon): Version 2.0.20
 
 ## Installation
 
