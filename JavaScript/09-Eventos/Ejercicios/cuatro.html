@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
+
+<body>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre del Producto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Costo</th>
+        <th scope="col">Fecha Vencimiento</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script>
+    // localStorage
+    const myFruits = [
+      { n: 1, name: "Manzana", cant: 5, price: 1000, cost: 500, date: '2021-12-12' },
+      { n: 2, name: "Pera", cant: 2, price: 2000, cost: 1000, date: '2021-12-12' },
+      { n: 3, name: "Uva", cant: 3, price: 3000, cost: 1500, date: '2021-12-12' },
+      { n: 4, name: "Sandia", cant: 4, price: 4000, cost: 2000, date: '2021-12-12' },
+      { n: 5, name: "Melon", cant: 3, price: 5000, cost: 2500, date: '2021-12-12' },
+      { n: 6, name: "Piña", cant: 6, price: 6000, cost: 3000, date: '2021-12-12' },
+      { n: 7, name: "Durazno", cant: 7, price: 7000, cost: 3500, date: '2021-12-12' },
+      { n: 8, name: "Banano", cant: 8, price: 8000, cost: 4000, date: '2021-12-12' },
+      { n: 9, name: "Limón", cant: 9, price: 9000, cost: 4500, date: '2021-12-12' },
+      { n: 10, name: "Tomate", cant: 10, price: 10000, cost: 5000, date: '2021-12-12' }];
+
+    myFruits.forEach((fruit) => {
+      let tr = document.createElement('tr');
+      tr.innerHTML = `
+          <th scope="row">${fruit.n}</th>
+          <td>${fruit.name}</td>
+          <td>${fruit.cant}</td>
+          <td>${fruit.price}</td>
+          <td>${fruit.cost}</td>
+          <td>${fruit.date}</td>
+        `;
+      document.querySelector('tbody').appendChild(tr);
+    });
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

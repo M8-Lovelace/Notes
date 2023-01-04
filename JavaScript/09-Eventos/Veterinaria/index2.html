@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <title>Factura</title>
+</head>
+
+<body class="" style="background: linear-gradient(to right, #36c1d3, #ffffff);">
+
+  <div class="row text-center">
+    <h1 class="col-12 fw-bold py-4 text-dark">ADMINISTRADOR DE PACIENTES DE VETERINARIA</h1>
+  </div>
+  <div class="bg-light w-50 m-auto">
+    <div class="row d-flex">
+      <div class="col-6 overflow-auto p-4 ps-5">
+        <h4 class="pb-2">Datos del Paciente</h4>
+        <form>
+          <div class="form-group">
+            <label for="nombreMascota">Nombre Mascota</label>
+            <input type="text" class="form-control" id="nombreMascota" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="propietario">Propietario</label>
+            <input type="text" class="form-control" id="propietario">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="text" class="form-control" id="telefono">
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" class="form-control" id="fecha">
+          </div>
+          <div class="form-group">
+            <label for="hora">Hora</label>
+            <input type="time" class="form-control" id="hora">
+          </div>
+          <div class="form-group">
+            <label for="sintomas">Sintomas</label>
+            <textarea class="form-control" id="sintomas" rows="3"></textarea>
+          </div>
+          <div class="d-grid">
+            <button type="button" class="btn btn-dark mt-2" id="crear" onclick="validar()">Crear Cita</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-5 pt-4">
+        <h5 class="pb-2">Administra tus Citas</h5>
+        <div id="cards">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Constantes globales
+    const crear = document.getElementById('crear');
+    const cards = document.getElementById('cards');
+    const nombreMascota = document.getElementById("nombreMascota");
+    const propietario = document.getElementById("propietario");
+    const telefono = document.getElementById("telefono");
+    const fecha = document.getElementById("fecha");
+    const hora = document.getElementById("hora");
+    const sintomas = document.getElementById("sintomas");
+
+    // Variables globales
+    let citas = []
+
+    // Funciones
+    // Funcion que validar los datos ingresados
+    function validar() {
+      // Validacion de campos vacios
+      if (!nombreMascota.value) {
+        alert("Introduce el nombre de la mascota");
+      }
+      else if (!propietario.value) {
+        alert("Introduce el nombre del propietario");
+      }
+      else if (!telefono.value) {
+        alert("Introduce el telefono");
+      }
+      else if (!fecha.value) {
+        alert("Introduce la fecha");
+      }
+      else if (!hora.value) {
+        alert("Introduce la hora");
+      }
+      else if (!sintomas.value) {
+        alert("Introduce los sintomas");
+      }
+      else {
+        // Hace las validaciones de que los campos:
+        if (fecha.value < new Date().toISOString().split("T")[0]) {
+          alert("La fecha de la cita no puede ser menor o igual a la actual");
+        }
+        else if (hora.value < "08:00" || hora.value > "19:00") {
+          alert("Nuestro horarios de atención es de 8:00 am a 12:00 am y de 2:00 pm a 7:00 pm");
+          return
+        }
+        else if(hora.value >= "12:00" && hora.value <= "14:00"){
+          alert("Nuestro horarios de atención es de 8:00 am a 12:00 am y de 2:00 pm a 7:00 pm");
+          return
+        }
+        else {
+          alert("Cita creada correctamente");
+          agregarDatos();
+        }
+      }
+    }
+
+    // Funcion que agrega los datos al array
+    function agregarDatos() {
+      // Crea un objeto con los datos ingresados
+      const cita = {
+        codigo: citas.length + 1,
+        nombreMascota: nombreMascota.value,
+        propietario: propietario.value,
+        telefono: telefono.value,
+        fecha: fecha.value,
+        hora: hora.value,
+        sintomas: sintomas.value
+      }
+      // Agrega el objeto a la lista de citas
+      citas.push(cita);
+      // Limpia los campos
+      limpiarCampos();
+      // Muestra las citas
+      mostrarCitas();
+    }
+    // Funcion que pintar los datos en la tabla
+    function mostrarCitas() {
+      console.log(citas);
+      crear.innerHTML = "Crear Cita";
+      // Limpia el div
+      cards.innerHTML = "";
+      // Recorre el array y agrega los datos en una card
+      citas.forEach((element) => {
+        cards.innerHTML += `
+          <div class="card mb-1 border-0">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">${element.nombreMascota}</h5>
+              <p class="card-text">Propietario: ${element.propietario}</p>
+              <p class="card-text">Telefono: ${element.telefono}</p>
+              <p class="card-text">Fecha: ${element.fecha}</p>
+              <p class="card-text">Hora: ${element.hora}</p>
+              <p class="card-text">Sintomas: ${element.sintomas}</p>
+              <button type="button" class="btn btn-danger" onclick="eliminarCita(${element.codigo})">Eliminar</button>
+              <button type="button" class="btn btn-primary" onclick="editarCita(${element.codigo})">Editar</button>
+            </div>
+          </div>
+        `
+      })
+    }
+
+    // Funcion que edita un producto del array
+    function editarCita (codigos) {
+      // Recorre el array y busca el codigo que se le pasa por parametro
+      citas.forEach((element) => {
+        if (element.codigo == codigos) {
+          // Limpia los campos
+          limpiarCampos();
+          // Agrega los datos del array al formulario
+          nombreMascota.value = element.nombreMascota;
+          propietario.value = element.propietario;
+          telefono.value = element.telefono;
+          fecha.value = element.fecha;
+          hora.value = element.hora;
+          sintomas.value = element.sintomas;
+          // Elimina el elemento del array
+          citas = citas.filter((element) => element.codigo != codigos);
+
+          // Cambia el boton de enviar por el de actualizar
+          crear.innerHTML = "Actualizar Cita";
+        }
+      })
+    }
+
+    // Funcion que elimina un producto del array
+    function eliminarCita(codigos) {
+      // Filtra el array y elimina el producto que tenga el codigo igual al que se le pasa por parametro
+      citas = citas.filter((element) => element.codigo != codigos);
+      // Agrega los datos a la tabla
+      mostrarCitas()
+    }
+
+    // Funcion que limpia los campos
+    function limpiarCampos() {
+      nombreMascota.value = "";
+      propietario.value = "";
+      telefono.value = "";
+      fecha.value = "";
+      hora.value = "";
+      sintomas.value = "";
+    }
+  </script>
+</body>

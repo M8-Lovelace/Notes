@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>LAURA SUSANO</title>
+</head>
+
+<body>
+  <!-- ENCABEZADO -->
+  <div class="container-fluid m-0 p-0">
+
+    <nav class="navbar navbar-light p-3" id="menu">
+      <div class="row d-flex menu">
+        <div class="col-0 col-sm-1 col-md-4 col-lg-2"></div>
+        <div class="col-12 ">
+          <a class="navbar-brand ms-5 ps-5 uni" href="#">
+            <img src="./img/logo.jpg">
+          </a>
+          <img src="./img/cart.png" class="carrito" data-bs-toggle="collapse" href="#carritoDesplegable" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+        </div>
+      </div>
+    </nav>
+
+    <div class="collapse carritoDesplegable" id="carritoDesplegable">
+      <div class="row">
+        <aside class="col-12">
+          <h2 class="pb-3">Carrito de compras</h2>
+          <ul class="list-group">
+            <table id="lista-carrito" class="u-full-width">
+              <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="carrito"></tbody>
+            </table>
+          </ul>
+          <hr>
+          <p class="text-right">Total: <span id="total">$0</span></p>
+          <hr>
+          <button id="vaciar-carrito" class="btn botonVaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+        </aside>
+      </div>
+    </div>
+
+    <div class="row container-fluid fondo m-0">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-5 pt-5 mt-5">
+          <h2 class="text-white">Aprende algo nuevo</h2>
+          <p class="text-white py-3">Todos los cursos a $15</p>
+
+
+          <div class="input-group buscar">
+            <div class="form-outline w-75">
+              <input type="search" id="form1" class="form-control input" placeholder="¿Que te gustaría Aprender?" />
+            </div>
+            <button type="button" class="btn btn-light buscar">
+              <img class="lupa" src="./img/lupa.png">
+            </button>
+          </div>
+        </div>
+        <div class="col-6"></div>
+      </div>
+    </div>
+
+    <div class="row bg-danger text-white m-0 barra">
+      <div class="col-4 col-sm-3 col-md-4 col-lg-2 colu"></div>
+      <div class="col-2 text-center colu-1 colus">
+        <div class="d-flex">
+          <div class="pt-4 iconos">
+            <img class="icono1" src="./img/icono1.png">
+          </div>
+          <div class="text ps-4 textos">
+            <p class="pt-3 pb-2">20.000 Cursos en línea<br>
+              Explora los temas más recientes</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2 text-center colus">
+        <div class="d-flex">
+          <div class="pt-4 iconos">
+            <img class="icono1" src="./img/icono2.png">
+          </div>
+          <div class="text ps-4 textos">
+            <p class="pt-3 pb-2">Instructores Expertos <br>
+              Aprende con distintos estilos</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2 text-center colus">
+        <div class="d-flex">
+          <div class="pt-4 iconos">
+            <img class="icono1" src="./img/icono3.png">
+          </div>
+          <div class="text ps-4 textos">
+            <p class="pt-3 pb-2">Acceso de por vida <br>
+              Aprende a tu ritmo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--PRODUCTOS-->
+
+    <section class="w-75 m-auto">
+      <span class="text-center">
+        <h2 class="mt-3">Cursos En Línea</h2>
+      </span>
+      <div class="row w-75 mx-auto justify-content-between mt-4 mb-2" id="contenedorTarjetas">
+      </div>
+    </section>
+
+
+    <!--FOOTER-->
+    <footer class="w-100 row d-flex m-0 bg-dark">
+      <div class="d-flex align-items-center justify-content-center flex-wrap mt-1 col-12 p-0 pe-5 all">
+        <p class="px-3 pt-3 text-light foot">Universidad. All Rights Reserved.</p>
+        <div id="iconos">
+          <a href="" target="_blank"><i class="bi bi-facebook text-light m-1"></i></a>
+          <a href="" target="_blank"><i class="bi bi-twitter text-light m-1"></i></a>
+          <a href="" target="_blank"><i class="bi bi-instagram text-light m-1"></i></a>
+        </div>
+      </div>
+      <div class="col-1 d-flex align-items-center justify-content-end pe-5 arriba">
+        <a href="#menu" class="text-white bg-info py-1 px-2 arriba fs-5">↥</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="./js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

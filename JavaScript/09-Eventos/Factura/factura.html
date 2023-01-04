@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <title>Factura</title>
+</head>
+
+<body class="d-flex">
+  <div class="row">
+    <div class="col-7 overflow-auto">
+      <table class="table table-bordered ms-2 mt-5 text-center">
+        <thead>
+          <tr class="bg-dark text-white">
+            <th scope="col">CODIGO</th>
+            <th scope="col">NOMBRE PRODUCTO</th>
+            <th scope="col">CANTIDAD</th>
+            <th scope="col">PRECIO</th>
+            <th scope="col">COSTO</th>
+            <th scope="col">FECHA DE VENCIMIENTO</th>
+            <th scope="col">COSTO TOTAL</th>
+            <th scope="col">PRECIO TOTAL</th>
+            <th scope="col">EDITAR</th>
+            <th scope="col">ELIMINAR</th>
+          </tr>
+        </thead>
+        <tbody id="insertarTabla">
+        </tbody>
+        <tr class="bg-dark text-white">
+          <td colspan="6" class="fw-bold">Costo total</td>
+          <td colspan="4" class="fw-bold" id="totalFactura">$0</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-3">
+      <form class="w-80 px-5 mt-5 py-5 bg-light">
+        <div class="mb-3">
+          <label for="codigo" class="form-label">Codigo</label>
+          <input type="text" class="form-control" id="codigo">
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre del Producto</label>
+          <input type="text" class="form-control" id="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input type="text" class="form-control" id="cantidad">
+        </div>
+        <div class="mb-3">
+          <label for="precio" class="form-label">Precio</label>
+          <input type="text" class="form-control" id="precio">
+        </div>
+        <div class="mb-3">
+          <label for="costo" class="form-label">Costo</label>
+          <input type="text" class="form-control" id="costo">
+        </div>
+        <div class="mb-3">
+          <label for="vencimiento" class="form-label">Fecha Vencimiento</label>
+          <input type="date" class="form-control" id="vencimiento">
+        </div>
+        <div id="botones">
+          <button type="button" class="btn btn-primary" onclick="validar()" id="enviar">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Constantes globales
+    const enviar = document.getElementById('enviar');
+    const tabla = document.getElementById("insertarTabla");
+    const total = document.getElementById("totalFactura");
+    const codigo = document.getElementById("codigo");
+    const nombre = document.getElementById("nombre");
+    const cantidad = document.getElementById("cantidad");
+    const precio = document.getElementById("precio");
+    const costo = document.getElementById("costo");
+    const vencimiento = document.getElementById("vencimiento");
+    // Variables globales
+    let productos = []
+
+    // Funciones
+    // Funcion que validar los datos ingresados
+    function validar(codigos) {
+      // Validacion de campos vacios
+      if (!codigo.value) {
+        alert("Introduce el codigo del producto");
+      }
+      else if (!nombre.value) {
+        alert("Introduce el nombre del producto");
+      }
+      else if (!cantidad.value) {
+        alert("Introduce la cantidad");
+      }
+      else if (!precio.value) {
+        alert("Introduce el precio del producto");
+      }
+      else if (!costo.value) {
+        alert("Introduce el costo del producto");
+      }
+      else if (!vencimiento.value) {
+        alert("Introduce una fecha de vencimiento");
+      }
+      else {
+        // Verifia que dentro del array creada no haya un codigo igual, si no lo hay lo agregará
+        let mirar = productos.some((element) => element.codigo === codigo.value)
+        if (mirar) {
+          alert("El codigo ya existe");
+        }
+        // Hace las validaciones de que los campos:
+        else {
+          // 1. La cantidad no sea negativa
+          if (cantidad.value < 0) {
+            alert("La cantidad no puede ser negativa");
+          }
+          // 2. El precio no sea negativo
+          else if (precio.value < 0) {
+            alert("El precio no puede ser negativo");
+          }
+          // 3. El precio no puede ser negativo ni puede ser menor o igual al costo
+          else if (parseInt(precio.value) <= parseInt(costo.value)) {
+            alert("El precio no puede ser igual o menor al costo");
+          }
+          else if (costo.value < 0) {
+            alert("El costo no puede ser negativo");
+          }
+          // 4. La fecha no puede ser menor o igual a la fecha de hoy
+          else if (vencimiento.value <= new Date().toISOString().split("T")[0]) {
+            alert("La fecha de vencimiento no puede ser menor o igual a la actual");
+          }
+          // Si no hay ningun error, se ejecutará la funcion agregarDatos
+          else {
+            agregarDatos();
+          }
+        }
+      }
+    }
+    
+    // Funcion que agrega los datos al array
+    function agregarDatos() {
+      enviar.innerHTML = "Enviar";
+      let producto = {
+        codigo: codigo.value,
+        nombre: nombre.value,
+        cantidad: cantidad.value,
+        precio: precio.value,
+        costo: costo.value,
+        vencimiento: vencimiento.value
+      }
+      productos.push(producto);
+      // Limpia los campos
+      limpiarCampos();
+      // Agrega los datos a la tabla
+      agregarTabla();
+    }
+    // Funcion que pintar los datos en la tabla
+    function agregarTabla() {
+      console.log(productos);
+      // Limpia la tabla
+      tabla.innerHTML = "";
+      // Recorre el array y agrega los datos a la tabla
+      productos.forEach((element) => {
+        tabla.innerHTML += `
+          <tr>
+            <td>${element.codigo}</td>
+            <td>${element.nombre}</td>
+            <td>${element.cantidad}</td>
+            <td>${element.precio}</td>
+            <td>${element.costo}</td>
+            <td>${element.vencimiento}</td>
+            <td>${element.cantidad * element.costo}</td>
+            <td>${element.cantidad * element.precio}</td>
+            <td><button type="button" class="btn btn-primary" onclick="editar('${element.codigo}')">Editar</button></td>
+            <td><button type="button" class="btn btn-danger" onclick="eliminar('${element.codigo}')">Eliminar</button></td>
+          </tr>
+        `
+        // Suma el total de la factura
+        totalFactura()
+      })
+    }
+
+    // Funcion que edita un producto del array
+    function editar(codigos) {
+      console.log(codigos);
+      // Recorre el array y busca el codigo que se le pasa por parametro
+      productos.forEach((element) => {
+        if (element.codigo == codigos) {
+          // Limpia los campos
+          limpiarCampos();
+          // Agrega los datos del array al formulario
+          codigo.value = element.codigo;
+          nombre.value = element.nombre;
+          cantidad.value = element.cantidad;
+          precio.value = element.precio;
+          costo.value = element.costo;
+          vencimiento.value = element.vencimiento;
+
+          // Elimina el producto a editar del array
+          productos = productos.filter((element) => element.codigo != codigos);
+
+          // Cambia el boton de enviar por el de actualizar
+          enviar.innerHTML = "Actualizar";
+        }
+      })
+    }
+
+    // Funcion que elimina un producto del array
+    function eliminar(codigo) {
+      // Filtra el array y elimina el producto que tenga el codigo igual al que se le pasa por parametro
+      productos = productos.filter((element) => element.codigo != codigo);
+      totalFactura();
+      // Agrega los datos a la tabla
+      agregarTabla();
+    }
+
+    // Funcion que limpia los campos
+    function limpiarCampos() {
+      codigo.value = "";
+      nombre.value = "";
+      cantidad.value = "";
+      precio.value = "";
+      costo.value = "";
+      vencimiento.value = "";
+    }
+
+    // Funcion que suma el total de la factura
+    function totalFactura() {
+      let totalFacturax = 0;
+      productos.forEach((element) => {
+        totalFacturax += element.cantidad * element.precio;
+        total.innerHTML = `$${totalFacturax}`
+      });
+      if (totalFacturax == 0) {
+        total.innerHTML = `$0`
+      }
+    }
+  </script>
+</body>

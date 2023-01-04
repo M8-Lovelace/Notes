@@ -1,0 +1,251 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.fondo {
+  background-image: url(./img/hero.jpg);
+  height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+input {
+  height: 40px;
+}
+.carrito {
+  width: 60px;
+}
+.carritoImg {
+  width: 40px;
+}
+.carritoDesplegable {
+  background-color: white;
+  padding: 20px;
+  position: absolute;
+  top: 68px;
+  right: 5%;
+  z-index: 5;
+  width: 500px;
+}
+.carritoImg:hover {
+  cursor: pointer;
+}
+
+.icono1 {
+  width: 30px;
+  height: 40px;
+}
+
+.card-img-top {
+  height: 180px;
+}
+
+.botonVaciar {
+  border: 1px solid rgb(165, 165, 165);
+  margin-top: 5px;
+  width: 100%;
+  color: rgb(165, 165, 165);
+  font-weight: 600;
+}
+.botonVaciar:hover {
+  cursor: pointer;
+  background-color: rgb(255, 59, 59);
+  color: white;
+}
+.input {
+  border-radius: 4px 0px 0px 4px;
+}
+.agregar {
+  font-size: 13px;
+}
+
+.buscar {
+  padding: 0;
+  height: 40px;
+  z-index: 1;
+}
+.lupa {
+  width: 30px;
+}
+.card {
+  margin: 5px;
+}
+
+.image {
+  width: 100px;
+}
+
+.eliminar {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: red;
+  border-radius: 50%;
+  padding: 0 5px 2px;
+}
+
+.eliminar:hover {
+  cursor: pointer;
+}
+.arriba{
+  border-radius: 5px;
+  text-decoration: none;
+  position: fixed;
+  bottom: 20px;
+  right: 22px;
+}
+
+@media (min-width: 0px) and (max-width: 470px) {
+  .navbar-brand img {
+    width: 160px;
+  }
+  .uni {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+  .menu {
+    position: relative;
+    width: 100%;
+  }
+  .carrito {
+    width: 35px;
+    position: absolute;
+    right: 10%;
+  }
+  .buscar {
+    display: none;
+  }
+  .colu {
+    width: 25%;
+  }
+  .card {
+    margin: 0 !important;
+  }
+  .textos {
+    display: none;
+  }
+  .iconos {
+    margin-bottom: 20px;
+  }
+  .colus {
+    display: flex;
+    justify-content: center;
+  }
+  .carritoDesplegable {
+    width: 350px;
+    right: 5px;
+    top: 62px;
+  }
+  .foot{
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 471px) and (max-width: 767px) {
+  .textos {
+    display: none;
+  }
+  .iconos {
+    margin-bottom: 20px;
+  }
+  .foot {
+    font-size: 15px;
+  }
+  .menu {
+    position: relative;
+    width: 100%;
+  }
+  .carrito {
+    width: 35px;
+    position: absolute;
+    right: 10%;
+  }
+  .colu {
+    display: none;
+  }
+  .colus {
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    margin-left: 25px;
+  }
+  .uni {
+    margin: 0px;
+  }
+  .barra {
+    display: flex;
+    justify-content: center;
+  }
+  .carritoDesplegable {
+    width: 380px;
+    right: 5px;
+    top: 62px;
+  }
+  .all{
+    padding: 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 989px) {
+  .colu {
+    padding: 0px;
+  }
+  .card {
+    margin-left: 0px;
+  }
+  .card-img-top {
+    height: 150px;
+  }
+  .menu {
+    position: relative;
+    width: 100%;
+  }
+  .carrito {
+    width: 35px;
+    position: absolute;
+    right: 10%;
+  }
+  .barra {
+    display: flex;
+    justify-content: center;
+  }
+  .colu {
+    display: none;
+  }
+  .colus {
+    width: 35%;
+    font-size: 80%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 990px) {
+  .menu {
+    position: relative;
+    width: 100%;
+  }
+  .carrito {
+    width: 35px;
+    position: absolute;
+    right: 10%;
+  }
+  .barra {
+    display: flex;
+    justify-content: center;
+  }
+  .colu {
+    display: none;
+  }
+  .colus {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    width: 30%;
+  }
+}

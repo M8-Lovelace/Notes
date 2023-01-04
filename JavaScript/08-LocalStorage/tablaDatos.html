@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
+
+<body class="d-flex vh-100">
+  <div class="w-50">
+    <table class="table table-dark text-white fw-bold ms-5 mt-4" style="width:70%">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody id="insertarTabla">
+      </tbody>
+    </table>
+  </div>
+  <div class="w-50">
+    <form class="w-50 pt-5">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre">
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido">
+      </div>
+      <div class="mb-3">
+        <label for="documento" class="form-label">Documento</label>
+        <input type="text" class="form-control" id="documento">
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono</label>
+        <input type="text" class="form-control" id="telefono">
+      </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="text" class="form-control" id="correo">
+      </div>
+      <button type="button" class="btn btn-primary" onclick="guardar()">Enviar</button>
+    </form>
+  </div>
+  <script>
+    let tabla = document.getElementById("insertarTabla");
+    function guardar() {
+      let personas=[]
+      let nombre = document.getElementById("nombre");
+      let apellido = document.getElementById("apellido");
+      let documento = document.getElementById("documento");
+      let telefono = document.getElementById("telefono");
+      let correo = document.getElementById("correo");
+      if (!nombre.value) {
+        alert("Introduce un nombre");
+      }
+      else if (!apellido.value) {
+        alert("Introduce un apellido");
+      }
+      else if (!documento.value) {
+        alert("Introduce un documento");
+      }
+      else if (!telefono.value) {
+        alert("Introduce un telefono");
+      }
+      else if (!correo.value) {
+        alert("Introduce un correo");
+      }
+      else {
+        let inserción = `
+        <tr>
+          <td>${nombre.value}</td>
+          <td>${apellido.value}</td>
+          <td>${documento.value}</td>
+          <td>${telefono.value}</td>
+        </tr>`;
+        tabla.innerHTML += inserción;
+        nombre.value = "";
+        apellido.value = "";
+        documento.value = "";
+        telefono.value = "";
+        correo.value="";
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <center class="mt-5">
+        <input
+          onchange="cambiar(this)" type="checkbox" id="html" name="lenguajes"          value="1122333"
+        />
+        <label for="html">Marcos</label><br />
+        <input onchange="cambiar(this)" type="checkbox" id="css" name="lenguajes" value="CSS" />
+        <label for="css">CSS</label><br />
+        <input onchange="cambiar(this)" type="checkbox" id="javascript" name="lenguajes" value="JavaScript"
+        />
+        <label for="javascript">JavaScript</label>
+      </center>
+      <div class="m-5">
+        <center>
+          <span id="msg"></span>
+        </center>
+      </div>
+    </div>
+
+    <script>
+      function cambiar(t){
+        let mensaje= document.getElementById("msg")
+        if(t.checked){
+          mensaje.innerHTML+=` ${t.value}`
+        }
+        else{
+          mensaje.innerHTML=mensaje.innerHTML.replace(t.value,"")
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
