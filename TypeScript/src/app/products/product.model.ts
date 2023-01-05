@@ -13,4 +13,4 @@ export interface Product extends BaseModel{
   category: Category;
   isNew: boolean;
   tags: string[];
-}
+};
