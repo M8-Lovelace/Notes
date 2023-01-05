@@ -10,14 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/M8-Lovelace/Notes/tree/main/TypeScript"
   },
-  "keywords": ["typescript",
-  "node",
-  "npm",
-  "javascript",
-  "esnext"],
+  "keywords": [
+    "typescript",
+    "node",
+    "npm",
+    "javascript",
+    "esnext"
+  ],
   "author": "Laura Susano <M8-Lovelace>",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.17",
     "nodemon": "^2.0.20",
