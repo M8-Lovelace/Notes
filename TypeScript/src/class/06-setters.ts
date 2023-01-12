@@ -46,6 +46,7 @@ export class MyDate {
     return this._month;
   }
 
+  // Debe recibir un parametro, no puede retornar nada y solo sirve para modificar
   set month(newValue: number) {
     if (newValue >= 1 && newValue <= 12) {
       this._month = newValue;
