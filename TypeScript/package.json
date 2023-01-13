@@ -23,6 +23,7 @@
     "@faker-js/faker": "^7.6.0",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.17",
+    "axios": "^1.2.2",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
