@@ -1,9 +1,21 @@
-import { Animal, Dog } from './08-protected';
-
 // Las clases abstractas son tan ‘genericas’ que no tiene sentido que sean instanciadas. Usamos la keyword abstract.
-const animal = new Animal('elite');
-animal.greeting();
+(() => {
+  // Las clases abstractas no pueden ser instanciadas, se aplica herencia y después su uso
 
-const cheis = new Dog('cheis', 'nico');
-cheis.greeting();
-cheis.woof(2);
+  // Con las clases abstractas podemos definir los contratos usando los tipos de acceso, lo que no permiten las interfaces
+  abstract class Base {
+    protected abstract getName(name: string): string;
+    protected abstract height: number;
+  }
+
+  class Derived extends Base {
+    constructor(protected height: number = 5, public newName: string) {
+      super();
+    }
+    protected getName(name: string) {
+      return "world" + name;
+    }
+  }
+
+  const test = new Derived(10, "Laura");
+})();
