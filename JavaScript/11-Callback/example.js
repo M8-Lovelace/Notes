@@ -50,6 +50,7 @@ const myEmployee = getEmployee(1, (err, employee) => {
       }
       else {
         console.log(salary); // { id: 1, salario: 1000 }
+        console.log(`El empleado ${employee.nombre} gana ${salary.salario}`); // El empleado Miguel gana 1000
       }
     });
   }
