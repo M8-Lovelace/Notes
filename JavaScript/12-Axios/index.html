@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Pokemon</title>
+</head>
+<body style="background-color: rgb(145, 212, 245);">
+  <div class="card m-auto mt-5" style="width: 25rem; border-radius: 20px; box-shadow: 7px 7px 15px #000000;">
+    <img src="./src/img/fondo.jpg" class="card-img-top" style="height: 12rem; border-radius: 20px 20px 0 0;" alt="fondo">
+    <div class="card-body text-center" style="position: relative; padding-top: 110px;">
+      <img src="" id="card-image" style="position: absolute; top: -110px; right: 6rem; width: 200px; background-color: white; border-radius: 50%; padding: 20px;" alt="imagen">
+      <div class="d-flex justify-content-center gap-4">
+        <h5 id="card-name" style="font-weight: bold;"></h5>
+        <p id="card-hp" style="color:gray;"></p>
+      </div>
+      <p id="card-exp" style="color:gray; margin: 0;"></p>
+    </div>
+    <hr>
+    <div class="d-flex" style="justify-content: space-between; width: 65%; margin: 0 auto; padding-bottom: 15px;">
+      <ul class="list-group list-group-flush">
+        <div style="text-align: center;">
+          <p id="card-ataque" style="font-weight: bold;"></p>
+          <p>Ataque</p>
+        </div>
+      </ul>
+      <ul class="list-group list-group-flush">
+        <div style="text-align: center;">
+          <p id="card-especial" style="font-weight: bold;"></p>
+          <p>Especial</p>
+        </div>
+      </ul>
+      <ul class="list-group list-group-flush">
+        <div style="text-align: center;">
+          <p id="card-defensa" style="font-weight: bold;"></p>
+          <p>Defensa</p>
+        </div>
+      </ul>
+    </div>
+    <button onclick="getPokemon()" style="border-radius: 0 0 20px 20px; background-color: rgb(255, 255, 255);">+ Nuevo Pokemon</button>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // Función que obtiene los datos de la API
+    function getPokemon() {
+      // Hacemos la petición get
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${randomNumber()}`)
+        .then(response => { 
+          console.log(response.data);
+          document.getElementById('card-name').textContent = response.data.name.charAt(0).toUpperCase() + response.data.name.slice(1);;
+          document.getElementById('card-image').src = response.data.sprites.other['official-artwork'].front_default;
+          document.getElementById('card-hp').textContent = response.data.stats[0].base_stat + ' Hp'
+          document.getElementById('card-exp').textContent = response.data.base_experience + ' Exp'
+          document.getElementById('card-ataque').textContent = response.data.stats[1].base_stat + ' K'
+          document.getElementById('card-especial').textContent = response.data.stats[3].base_stat + ' K'
+          document.getElementById('card-defensa').textContent = response.data.stats[2].base_stat + ' K'
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    };
+
+    function randomNumber() {
+      return Math.floor(Math.random() * (500 - 1 + 1)) + 1;
+    };
+
+    window.addEventListener("load", getPokemon);
+  
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
