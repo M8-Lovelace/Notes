@@ -1,0 +1,16 @@
+<span class="total">{{ resultados.length || 0 }} gifs encontrados</span>
+<div class="subcontainer">
+  <div
+    *ngFor="let gift of resultados"
+    class="gift animate__animated animate__backInDown"
+  >
+    <img
+      class="img"
+      [src]="gift.images.downsized_medium.url"
+      [alt]="gift.title"
+    />
+    <div class="information">
+      <p>{{ gift.title | titlecase }}</p>
+    </div>
+  </div>
+</div>

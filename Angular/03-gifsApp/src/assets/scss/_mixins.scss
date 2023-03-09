@@ -1,0 +1,8 @@
+// Definición de las fuentes
+@mixin font($font, $size, $weight, $line_height, $color) {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line_height;
+  color: $color;
+}

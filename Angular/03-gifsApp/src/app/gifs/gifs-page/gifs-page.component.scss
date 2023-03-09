@@ -1,0 +1,21 @@
+// Importación de las variables y mixins
+@use "../../../assets/scss/variables";
+@use "../../../assets/scss/mixins";
+
+.busqueda {
+  display: block;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: variables.$bg-content;
+  padding: 16px 40px;
+}

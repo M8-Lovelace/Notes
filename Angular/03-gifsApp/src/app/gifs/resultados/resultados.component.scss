@@ -1,0 +1,59 @@
+// Importación de las variables y mixins
+@use "../../../assets/scss/variables";
+@use "../../../assets/scss/mixins";
+
+.total {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 15.0667px;
+  margin-bottom: 16px;
+  color: variables.$tx-total;
+}
+
+.subcontainer {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: scroll;
+  justify-content: space-between;
+}
+
+.gift {
+  overflow: hidden;
+  width: 30%;
+  height: 235px;
+  border-radius: 8px;
+  background-color: variables.$bg-card;
+  border: 0.5px solid variables.$border-card;
+  box-shadow: 0px 1px 4px rgba(26, 26, 67, 0.1);
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.gift:hover {
+  height: 232.5px;
+  border: 2px solid #4945ff;
+  animation: rubberBand; 
+  animation-duration: 2s;
+}
+
+.img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+}
+
+.information {
+  width: 100%;
+  height: 100%;
+  padding: 14px 16px 18px 16px;
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    color: #4a4a6a;
+  }
+}

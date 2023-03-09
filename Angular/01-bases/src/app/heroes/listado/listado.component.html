@@ -1,0 +1,22 @@
+<app-contador></app-contador>
+<br>
+<br>
+<br>
+<p>Listado de héroes</p>
+
+<div *ngIf="deletedHeroe; else noBorrado">
+  <li>
+    Héroe borrado: <small>{{ deletedHeroe }}</small>
+  </li>
+</div>
+
+<!-- Referencia local -->
+<ng-template #noBorrado>
+  <li>No ha borrado nada.</li>
+</ng-template>
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+<ul>
+  <li *ngFor="let heroe of heroes; let i = index">{{ i + 1 }} - {{ heroe }}</li>
+</ul>

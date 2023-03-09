@@ -1,0 +1,60 @@
+// Importación de las variables y mixins
+@use "../../../assets/scss/variables";
+@use "../../../assets/scss/mixins";
+
+.query,
+.quantity,
+.search {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%;
+
+  label {
+    font-weight: 700;
+    font-size: 12px;
+    color: variables.$tx-query;
+  }
+
+  // Inputs de tipo text y number
+  input[type="text"],
+  input[type="number"] {
+    margin-top: 4px;
+    outline: none;
+    height: 40px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 1px solid #dcdce4;
+    background-color: variables.$white;
+    font-weight: 400;
+    font-size: 14px;
+    color: variables.$tx-query;
+  }
+  input[type="text"]::placeholder {
+    color: variables.$tx-placeholder;
+  }
+  input[type="text"]:hover,
+  input[type="text"]:focus,
+  input[type="number"]:hover,
+  input[type="number"]:focus {
+    border: 2px solid #4945ff;
+    padding: 9px 15px;
+  }
+}
+
+// Inputs de tipo button
+.search {
+  flex-basis: 20%;
+  padding-top: 17px;
+  button {
+    cursor: pointer;
+    background-color: variables.$bg-btn-buscar;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    height: 40px;
+    color: variables.$white;
+    padding: 10px 16px;
+  }
+}

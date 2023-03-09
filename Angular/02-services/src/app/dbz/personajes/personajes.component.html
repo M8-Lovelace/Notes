@@ -1,0 +1,11 @@
+<h3>Personajes</h3>
+<hr />
+<ul *ngIf="personajes.length; else noPersonajes">
+  <li *ngFor="let item of personajes">
+    <!-- Pipes, sirven para transformar visualmente la información -->
+    {{ item.name }} - {{ item.power | number }}
+  </li>
+</ul>
+<ng-template #noPersonajes>
+  <li>No hay personajes</li>
+</ng-template>

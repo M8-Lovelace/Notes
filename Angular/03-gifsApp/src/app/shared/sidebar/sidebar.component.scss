@@ -1,0 +1,61 @@
+// Importación de las variables y mixins
+@use "../../../assets/scss/variables";
+@use "../../../assets/scss/mixins";
+
+.title {
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: variables.$tx-search;
+  text-align: center;
+}
+
+.querys {
+  margin-top: 12px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &-link {
+    background-color: variables.$bg-link-disable;
+    height: 32px;
+    display: block;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 6px 0px 6px 12.67px;
+    margin-bottom: 12px;
+
+    &-number {
+      background-color: variables.$bg-link-number-inactive;
+      border-radius: 11px;
+      width: 26px;
+      height: 20px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: variables.$white;
+      text-align: center;
+      margin-right: 12.67px;
+    }
+
+    &-query {
+      color: variables.$tx-search;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  &-link:hover {
+    background-color: transparent;
+  }
+
+  &-link:hover .querys-link-number {
+    background-color: transparent;
+  }
+
+  &-link:hover .querys-link-query {
+    color: transparent;
+  }
+}

@@ -1,0 +1,13 @@
+<h3 class="title">Búsquedas recientes</h3>
+<div class="querys" *ngIf="historial">
+  <a
+    class="querys-link"
+    *ngFor="let item of historial; index as i"
+    (click)="buscar(item)"
+    href="#"
+    ><span class="querys-link-number">
+      {{ i + 1 }}
+    </span>
+    <span class="querys-link-query">{{ item | titlecase }}</span></a
+  >
+</div>

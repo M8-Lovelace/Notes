@@ -1,0 +1,44 @@
+// Importación de las variables y mixins
+@use "../src/assets/scss/variables";
+@use "../src/assets/scss/mixins";
+
+// Importamos la fuente de Ubuntu
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,300&display=swap");
+
+// Reseteamos los estilos de los elementos
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.5erem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+}
+
+// Asignamos la fuente a 10px
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+// Ocupador todo el ancho y alto de la pantalla
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+}

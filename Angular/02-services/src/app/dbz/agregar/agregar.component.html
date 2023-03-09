@@ -1,0 +1,9 @@
+<h3>Agregar</h3>
+<hr />
+<!-- Method 01 -->
+<!-- <form (submit)="addForm($event)" class="d-flex flex-column"> -->
+<form (ngSubmit)="addForm()" class="d-flex flex-column p-4">
+  <input type="text" name="name" placeholder="Nombre del personaje" [(ngModel)]="newCharacter.name" />
+  <input type="number" name="power" placeholder="Poder del personaje" [(ngModel)]="newCharacter.power" />
+  <button class="btn btn-custom-color" type="submit">Agregar</button>
+</form>

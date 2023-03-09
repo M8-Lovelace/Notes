@@ -1,0 +1,43 @@
+// Importación de las variables y mixins
+@use "../assets/scss/variables";
+@use "../assets/scss/mixins";
+
+.main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-sidebar {
+    min-width: 209px;
+    height: 100%;
+    background-color: variables.$bg-sidebar;
+    border-right: 1px solid variables.$border-color;
+    padding-top: 53px;
+  }
+
+  &-content {
+    width: 100%;
+    height: 100%;
+    background-color: variables.$bg-main;
+    padding: 53px 30px;
+  }
+}
+
+// Contenedor que tiene un width del 100%
+.wrap-container {
+  width: 100%;
+}
+
+// Contenedor que tiene width máximo 1200px
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1300px;
+  height: 100%;
+  background-color: variables.$bg-main;
+}

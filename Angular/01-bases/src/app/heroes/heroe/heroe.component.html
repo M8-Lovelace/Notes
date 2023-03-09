@@ -1,0 +1,14 @@
+<!-- One way data binding - enlazado de una sola vía, solo tienen un enlace a la propiedad -->
+<app-contador></app-contador>
+<h1>{{ nombre }}</h1>
+<dl>
+  <dt>Nombre:</dt>
+  <dd>{{ nombre }}</dd>
+  <dt>Edad:</dt>
+  <dd>{{ edad }}</dd>
+  <dt>Función:</dt>
+  <dd>{{ nombreEdad }}</dd>
+  <dt>Capitalizado:</dt>
+  <dd>{{ nombre | uppercase }}</dd>
+</dl>
+<button (click)="nombreEdad = 'Babbage'">Cambiar Heroe</button>
