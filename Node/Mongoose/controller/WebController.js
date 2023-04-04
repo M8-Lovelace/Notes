@@ -63,7 +63,6 @@ WebCtrl.updateWeb = async (req, res) => {
   const { ad, name, topic, url, dateEnd } = req.body;
   try {
     const web = await Web.findById(id);
-    console.log(web);
     !web
       ? res.status(404).json({ message: "No web found" })
       : (web.ad == ad)(web.name == name)(web.topic == topic)(web.url == url)(

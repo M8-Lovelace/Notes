@@ -39,7 +39,6 @@ AdCtrl.createAd = async (req, res) => {
       category,
       price,
     });
-    console.log(newAd);
     const ad = await newAd.save();
     res.status(200).json(ad);
   } catch (error) {
@@ -55,12 +54,14 @@ AdCtrl.updateAd = async (req, res) => {
     const ad = await Ad.findById(id);
     !ad
       ? res.status(404).json({ message: "No ads found" })
-      : (ad.user == user)((ad.name = name)),
+      : (ad.user == user),
+      (ad.name = name),
       (ad.type = type),
       (ad.title = title),
       (ad.content = content),
       (ad.category = category),
       (ad.price = price);
+      
     const adsUpdated = await ad.save();
     res.status(200).json(adsUpdated);
   } catch (error) {
