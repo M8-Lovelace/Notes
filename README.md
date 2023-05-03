@@ -9,8 +9,9 @@ These are some notes from my programming journey
 3. [JavaScript](./JavaScript/)
 4. [Node](./Node/)
 5. [Python](./Python/)
-6. [TypeScript](./TypeScript/)
-7. [Vue](./Vue/)
+6. [React](./React/)
+7. [TypeScript](./TypeScript/)
+8. [Vue](./Vue/)
 
 ## General Info
 - Check my notes!
