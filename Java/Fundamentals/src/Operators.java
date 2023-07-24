@@ -1,13 +1,12 @@
 
 // Importamos la libreria de JOptionPane
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 // Un operador lleva a cabo operaciones sobre uno (operador unario), dos
 // (operador binario) o tres (operador ternario) datos u operandos de tipo
 // primitvo devolviendo un valor determinado también de un tipo primitivo.
-
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
 
 public class Operators {
     // --------------------------------------------------------------------//
