@@ -1,3 +1,4 @@
+
 // Importanciones
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -5,7 +6,7 @@ import java.util.Scanner;
 // Crear un programa que reciba un nombre de factura, con dos productos.
 // El programa debe retornar el iva del 19% sobre el valor total de los productos
 public class SecondAssignment {
-  public static void main (String[] args){
+  public static void main(String[] args) {
     // Instanciar Scanner
     Scanner scanner = new Scanner(System.in);
 
@@ -23,7 +24,7 @@ public class SecondAssignment {
       System.out.println("Ingrese el precio del segundo producto: ");
       productTwo = scanner.nextDouble();
 
-    } catch (InputMismatchException e){
+    } catch (InputMismatchException e) {
       // Error
       System.out.println("Error en los datos ingresados");
       // Reinicio
@@ -36,9 +37,10 @@ public class SecondAssignment {
       long total = Math.round((productOne + productTwo) * 1.19);
       // Mostramos el resultado en la consola
       System.out.println("La factura producto de " + invoiceName + " " +
-                         "\nTiene un total bruto de " + Math.round((productOne + productTwo)) +
-                         ",\nCon un impuesto de " + Math.round((total - (productOne + productTwo))) +
-                         "\nY el monto después de impuesto es de " + total );
+          "\nTiene un total bruto de " + Math.round((productOne + productTwo)) +
+          ",\nCon un impuesto de " + Math.round((total - (productOne + productTwo))) +
+          "\nY el monto después de impuesto es de " + total);
     }
+    scanner.close();
   }
 }
