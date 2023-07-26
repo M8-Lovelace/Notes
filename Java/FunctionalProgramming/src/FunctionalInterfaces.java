@@ -1,4 +1,3 @@
-import java.util.Optional;
 
 public class FunctionalInterfaces {
   // --------------------------------------------------------------------//
@@ -7,7 +6,6 @@ public class FunctionalInterfaces {
   // Reasignar la función a la misma variable para añadir funcionalidad posterior
   // Function<Persona, String> nombre = per -> per.getNombre();
   // nombre = nombre.andThen( nombre -> nombre.toUpperCase() );
-
 
   // compose: añadir funcionalidad anterior
   // Añadir funcionalidad anterior a la función original
@@ -50,7 +48,6 @@ public class FunctionalInterfaces {
   // BiPredicate <T, U> == f(T, U) -> boolean
   // DoubleBinaryOperator == f(double, double) -> double
 
-
   // --------------------------------------------------------------------//
   // --------------------- REFERENCIAS A MÉTODOS ------------------------//
 
@@ -63,9 +60,9 @@ public class FunctionalInterfaces {
   // lista.sort(util::compare);
 
   // class Utilidades {
-  //   public int compare(String s1, String s2) {
-  //     return S1.Length() - s2.Length();
-  //   }
+  // public int compare(String s1, String s2) {
+  // return S1.Length() - s2.Length();
+  // }
   // }
 
   // -------- Referencia a un método de una instancia particular -------//
@@ -73,9 +70,9 @@ public class FunctionalInterfaces {
   // lista.sort(util::compare);
 
   // class Utilidades {
-  //   public int compare(String s1, String s2) {
-  //     return S1.Length() - s2.Length();
-  //   }
+  // public int compare(String s1, String s2) {
+  // return S1.Length() - s2.Length();
+  // }
   // }
 
   // -------- Referencia a un método de una instancia particular -------//
@@ -83,14 +80,13 @@ public class FunctionalInterfaces {
   // int compare(String o1, String o2);
 
   // public final class String ... {
-  //  ...
-  //  public int compareToIgnoreCase(String str)
+  // ...
+  // public int compareToIgnoreCase(String str)
 
   // ------------------- Referencia a un constructor -------------------//
   // Function<String, Integer> conversor = Integer::new;
   // conversor.apply("3");
   // new Integer("3");
-
 
   // ---------------------------- OPTIONAL ----------------------------//
   // Si el optional va a tener valor
@@ -104,49 +100,49 @@ public class FunctionalInterfaces {
 
   // String saluda (Optional<Persona> persona) {
   // El método isPresent() devuelve true si el optional tiene valor
-  //   if (persona.isPresent()) {
-  //    return "Hola " + persona.get().getNombre();
-  //   } else {
-  //    return "Hola desconocido";
-  //   }
+  // if (persona.isPresent()) {
+  // return "Hola " + persona.get().getNombre();
+  // } else {
+  // return "Hola desconocido";
+  // }
   // }
 
   // map: ejecuta una función si el optional tiene valor y devuelve un optional
   // con el resultado de la función, si no tiene valor devuelve un optional vacío
   // Optional<String> saluda (Optional<Persona> persona) {
-  //  return persona.map(it -> "Hola " + it.getNombre());
+  // return persona.map(it -> "Hola " + it.getNombre());
   // }
 
   // orElse: devuelve el valor del optional si tiene valor, si no tiene valor
   // devuelve el valor por defecto que le pasamos como parámetro
   // String saluda (Optional<Persona> persona) {
-  //  return persona.map(it -> "Hola " + it.getNombre()).orElse("Hola desconocido");
+  // return persona.map(it -> "Hola " + it.getNombre()).orElse("Hola
+  // desconocido");
   // }
 
   // Desglosar el map en dos map para que sea más legible el código
   // El método devuelve un optional con el resultado de la función
   // String saluda (Optional<Persona> persona) {
-  //  return persona.map(Persona::getNombre)
-  //                .map("Hola "::concat)
-  //                .orElse("Hola desconocido");
+  // return persona.map(Persona::getNombre)
+  // .map("Hola "::concat)
+  // .orElse("Hola desconocido");
   // }
 
-  // flatMap: ejecuta una función si el optional tiene valor y devuelve un optional
+  // flatMap: ejecuta una función si el optional tiene valor y devuelve un
+  // optional
   // con el resultado de la función, si no tiene valor devuelve un optional vacío
   // static class Persona {
-  //   private Optional<String> nombre;
+  // private Optional<String> nombre;
 
-  //   Optional<String> getNombre() {
-  //    return nombre;
-  //   }
+  // Optional<String> getNombre() {
+  // return nombre;
+  // }
   // }
 
   // String saluda (Optional<Persona> persona) {
-  //  return persona.flatMap(Persona::getNombre)
-  //                .map("Hola "::concat)
-  //                .orElse("Hola desconocido");
+  // return persona.flatMap(Persona::getNombre)
+  // .map("Hola "::concat)
+  // .orElse("Hola desconocido");
   // }
-
-
 
 }
