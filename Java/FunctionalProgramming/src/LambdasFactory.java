@@ -1,5 +1,3 @@
-package org.formacion;
-
 
 /**
  * El ejercicio consiste en implementar los metodos de tal forma que
@@ -11,26 +9,28 @@ package org.formacion;
  * El primer metodo devuelve un objeto del tipo Constante
  * En la parte inferior de este fichero encontrareis la definicion de Constante
  * que tiene un metodo abstract:
- *    int valor();
+ * int valor();
  *
  * Por tanto, vuestra implementacion del metodo devuelve5 debe tener la forma:
- *    return lambda_expression;
+ * return lambda_expression;
  *
- * Donde lambda_expression es una implementación del método int valor() que siempre
+ * Donde lambda_expression es una implementación del método int valor() que
+ * siempre
  * devuelve 5
  *
  */
 public class LambdasFactory {
-
 
   /** Devuelve una implemtacion de constante que siempre devuelve 5 */
   public Constante devuelve5() {
     return () -> 5; // implementa int valor()
   }
 
-  /** Devuelve una implementacion de Operador con el metodo de suma de dos enteros */
+  /**
+   * Devuelve una implementacion de Operador con el metodo de suma de dos enteros
+   */
   public Operador obtenSumador() {
-    return (a,b) -> a + b; // implementa int opera ( int a, int b)
+    return (a, b) -> a + b; // implementa int opera ( int a, int b)
   }
 
   /**
@@ -56,9 +56,9 @@ interface Constante {
 }
 
 interface Operador {
-  int opera ( int a, int b);
+  int opera(int a, int b);
 }
 
 interface InicializadorArrays {
-  void inicializa ( String[] array, String valor)  ;
+  void inicializa(String[] array, String valor);
 }
