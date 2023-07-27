@@ -132,5 +132,72 @@ public class ControlFlows {
       System.out.println("nombre = " + nombree);
     }
 
+    // --------------------------------------------------------------------//
+    // ------------------------ BUCLE ETIQUETAS ---------------------------//
+
+    bucle: for (int i1 = 1; i1 <= 7; i1++) {
+      int j1 = 1;
+      while (j1 <= 8) {
+        if (i1 == 6 || i1 == 7) {
+          System.out.println("Dia " + i1 + ": descanso de fin de semana!");
+          continue bucle;
+        }
+        System.out.println("Día " + i1 + ", trabajando a las " + j1 + "hrs. ");
+        j1++;
+      }
+    }
+    System.out.println("\n=================================================");
+
+    bucle1: for (int i2 = 0; i2 < 5; i2++) {
+
+      System.out.println();
+      int j2 = 0;
+      while (j2 < 5) {
+        if (i2 == 2) {
+          continue bucle1;
+        }
+        System.out.print("[i2 = " + i2 + ", j2 = " + j2 + "], ");
+        j2++;
+      }
+    }
+
+    System.out.println("\n=================================================");
+
+    etiqueta: for (int i3 = 0; i3 < 5; i3++) {
+
+      System.out.println();
+      for (int j3 = 0; j3 < 5; j3++) {
+        if (i3 == 2) {
+          break etiqueta;
+        }
+        System.out.print("[i3 = " + i3 + ", j3 = " + j3 + "], ");
+      }
+    }
+
+    System.out.println("\n=================================================");
+
+    // BUSCAR
+
+    String frase = "tres tristes tigres tragan trigo en un trigal";
+    String palabra = "trigo";
+
+    int maxPalabra = palabra.length();
+    int maxFrase = frase.length() - maxPalabra;
+
+    int cantidad = 0;
+    // char letra = 'g';
+    buscar: for (int i4 = 0; i4 <= maxFrase;) {
+      int k4 = i4;
+      for (int j4 = 0; j4 < maxPalabra; j4++) {
+        if (frase.charAt(k4++) != palabra.charAt(j4)) {
+          i4++;
+          continue buscar;
+        }
+      }
+      cantidad++;
+      i4 = i4 + maxPalabra;
+    }
+    System.out.println("Encontrado = " + cantidad + " veces la palabra '" + palabra + "' en la frase");
+
   }
 }
