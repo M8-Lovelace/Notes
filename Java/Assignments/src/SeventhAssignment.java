@@ -17,28 +17,28 @@ public class SeventhAssignment {
 
     System.out.println("Ingrese la cantidad de números a comparar: ");
 
-    int cantidad = scanner.nextInt();
+    int quantity = scanner.nextInt();
 
-    int numeroMenor = 0;
+    int smallNumber = 0;
 
-    for (int i = 0; i < cantidad; i++) {
+    for (int i = 0; i < quantity; i++) {
       System.out.println("Ingrese el número " + (i + 1) + ": ");
-      int numero = scanner.nextInt();
+      int number = scanner.nextInt();
 
       if (i == 0) {
-        numeroMenor = numero;
+        smallNumber = number;
       } else {
-        if (numero < numeroMenor) {
-          numeroMenor = numero;
+        if (number < smallNumber) {
+          smallNumber = number;
         }
       }
     }
 
     scanner.close();
 
-    System.out.println("El número menor es: " + numeroMenor);
+    System.out.println("El número menor es: " + smallNumber);
 
-    if (numeroMenor < 10) {
+    if (smallNumber < 10) {
       System.out.println("El número menor es menor que 10!");
     } else {
       System.out.println("El número menor es igual o mayor que 10!");

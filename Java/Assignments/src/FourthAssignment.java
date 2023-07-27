@@ -17,11 +17,11 @@ public class FourthAssignment {
 
     scanner.close();
 
-    int mayor = num1 > num2 ? num1 : num2;
-    int menor = num1 < num2 ? num1 : num2;
+    int larger = num1 > num2 ? num1 : num2;
+    int minor = num1 < num2 ? num1 : num2;
 
-    System.out.println("Mayor: " + mayor);
-    System.out.println("Menor: " + menor);
+    System.out.println("Mayor: " + larger);
+    System.out.println("Menor: " + minor);
   }
 
 }
