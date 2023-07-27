@@ -6,35 +6,7 @@
 // cada opción asociada a un numero.
 
 // O bien! otra forma mucho mejor seria usando la clase JOptionPane para un menú con 
-// interfaces graficas de la siguiente forma:
-
-// int opcionIndice = 0;
-// ...
-
-// // los Map (o mapas) los veremos mas adelante en el curso en profundidad
-// // pero son como un arreglo asociativo, asocia un nombre (o indice) a un valor
-// // también se les conoce como diccionarios para almacenar datos en base a un nombre.
-// Map<String, Integer> opciones = new HashMap();
-// opciones.put("Actualizar", 1);
-// opciones.put("Eliminar", 2);
-// opciones.put("Agregar", 3);
-// opciones.put("Listar", 4);
-// opciones.put("Salir", 5);
-
-// Object[] opArreglo = opciones.keySet().toArray();
-
-// Object opcion = JOptionPane.showInputDialog(null,
-//                     "Seleccione un Opción", 
-//                      "Mantenedor de Productos", 
-//                      JOptionPane.INFORMATION_MESSAGE, null, opArreglo, opArreglo[0]);
-
-// if (opcion == null) {
-//     JOptionPane.showMessageDialog(null, "Debe seleccionar una operación");
-// } else {
-//     opcionIndice = opciones.get(opcion.toString());
-
-//    // aca un if o switch para las distintas opciones.
-// }
+// interfaces graficas
 
 // Según el numero ingresado usar un if o switch para implementar cada una de las 4 operaciones
 // y 5 para salir.
@@ -56,8 +28,85 @@
 // con otra, al finalizar con la opción salir (5) se debe mostrar el mensaje "Haz salido con exito!"
 // y finalizar el programa.
 
-public class TenthAssignment {
-  public static void main(String[] args) {
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.swing.JOptionPane;
+
+public class TenthAssignment {
+
+  public static void main(String[] args) {
+    // Mostrar el menú
+    Map<String, Integer> options = new HashMap<>();
+    options.put("Actualizar", 1);
+    options.put("Eliminar", 2);
+    options.put("Agregar", 3);
+    options.put("Listar", 4);
+    options.put("Salir", 5);
+
+    // Convertir las opciones a un arreglo para mostrarlas en el JOptionPane
+    Object[] opArray = options.keySet().toArray();
+    int optionIndex;
+
+    // Mostrar el menú hasta que el usuario seleccione la opción de salir
+    do {
+      // Mostrar el menú
+      Object selectedOption = JOptionPane.showInputDialog(null,
+          "Seleccione una Opción",
+          "Mantenedor de Productos",
+          JOptionPane.INFORMATION_MESSAGE, null, opArray, opArray[0]);
+
+      // Si el usuario cancela la operación, selectedOption será null
+      if (selectedOption == null) {
+        JOptionPane.showMessageDialog(null, "Debe seleccionar una operación");
+        optionIndex = 0;
+      } else {
+        // Obtener el índice de la opción seleccionada
+        optionIndex = options.get(selectedOption.toString());
+
+        // Ejecutar la opción seleccionada
+        switch (optionIndex) {
+          case 1:
+            updateProduct();
+            break;
+          case 2:
+            deleteProduct();
+            break;
+          case 3:
+            addProduct();
+            break;
+          case 4:
+            listProducts();
+            break;
+          case 5:
+            JOptionPane.showMessageDialog(null, "Has salido con éxito!");
+            break;
+          default:
+            JOptionPane.showMessageDialog(null, "Opción inválida");
+            optionIndex = 0;
+            break;
+        }
+      }
+    } while (optionIndex != 5);
+  }
+
+  // Método para agregar un producto
+  private static void updateProduct() {
+    JOptionPane.showMessageDialog(null, "Producto actualizado correctamente");
+  }
+
+  // Método para eliminar un producto
+  private static void deleteProduct() {
+    JOptionPane.showMessageDialog(null, "Producto eliminado correctamente");
+  }
+
+  // Método para agregar un producto
+  private static void addProduct() {
+    JOptionPane.showMessageDialog(null, "Producto agregado correctamente");
+  }
+
+  // Método para listar los productos
+  private static void listProducts() {
+    JOptionPane.showMessageDialog(null, "Listando productos...");
   }
 }
