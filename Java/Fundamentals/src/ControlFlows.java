@@ -60,6 +60,7 @@ public class ControlFlows {
       default:
         System.out.println("Usuario desconocido!");
     }
+    System.out.println(" ");
 
     // --------------------------------------------------------------------//
     // ------------------------------- FOR --------------------------------//
@@ -81,6 +82,7 @@ public class ControlFlows {
       }
       System.out.println(i + ".- " + nombres[i]);
     }
+    System.out.println(" ");
 
     // --------------------------------------------------------------------//
     // -------------------------- WHILE / DO ------------------------------//
@@ -117,6 +119,7 @@ public class ControlFlows {
       System.out.println("i = " + i);
       i++;
     } while (prueba);
+    System.out.println(" ");
 
     // --------------------------------------------------------------------//
     // --------------------------- FOR EACH -------------------------------//
@@ -131,6 +134,7 @@ public class ControlFlows {
     for (String nombree : nombress) {
       System.out.println("nombre = " + nombree);
     }
+    System.out.println(" ");
 
     // --------------------------------------------------------------------//
     // ------------------------ BUCLE ETIQUETAS ---------------------------//
