@@ -1,0 +1,218 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ArraysExample",
+      "request": "launch",
+      "mainClass": "ArraysExample",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Arrays",
+      "request": "launch",
+      "mainClass": "Arrays",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "CalculatorCommandLineArguments",
+      "request": "launch",
+      "mainClass": "CalculatorCommandLineArguments",
+      "projectName": "Java_745c3ce8",
+      "args": ["suma", 3, 5]
+    },
+    {
+      "type": "java",
+      "name": "CommandLineArguments",
+      "request": "launch",
+      "mainClass": "CommandLineArguments",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "ControlFlows",
+      "request": "launch",
+      "mainClass": "ControlFlows",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "DateAndCalendar",
+      "request": "launch",
+      "mainClass": "DateAndCalendar",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "EighthAssignment",
+      "request": "launch",
+      "mainClass": "EighthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "EleventhAssignment",
+      "request": "launch",
+      "mainClass": "EleventhAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "FifthAssignment",
+      "request": "launch",
+      "mainClass": "FifthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "FirstAssignment",
+      "request": "launch",
+      "mainClass": "FirstAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "FourthAssignment",
+      "request": "launch",
+      "mainClass": "FourthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "HelloWorld",
+      "request": "launch",
+      "mainClass": "HelloWorld",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "MathClass",
+      "request": "launch",
+      "mainClass": "MathClass",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "NinthAssignment",
+      "request": "launch",
+      "mainClass": "NinthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "NumericalSystems",
+      "request": "launch",
+      "mainClass": "NumericalSystems",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "NumericalSystemsScanner",
+      "request": "launch",
+      "mainClass": "NumericalSystemsScanner",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Operators",
+      "request": "launch",
+      "mainClass": "Operators",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Primitives",
+      "request": "launch",
+      "mainClass": "Primitives",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "SecondAssignment",
+      "request": "launch",
+      "mainClass": "SecondAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "SeventhAssignment",
+      "request": "launch",
+      "mainClass": "SeventhAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "SixthAssignment",
+      "request": "launch",
+      "mainClass": "SixthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Strings",
+      "request": "launch",
+      "mainClass": "Strings",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "SystemProperties",
+      "request": "launch",
+      "mainClass": "SystemProperties",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "TenthAssignment",
+      "request": "launch",
+      "mainClass": "TenthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "ThirdAssignment",
+      "request": "launch",
+      "mainClass": "ThirdAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "TwelfthAssignment",
+      "request": "launch",
+      "mainClass": "TwelfthAssignment",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "TypeConversion",
+      "request": "launch",
+      "mainClass": "TypeConversion",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "ValueAndReference",
+      "request": "launch",
+      "mainClass": "ValueAndReference",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Wrapper",
+      "request": "launch",
+      "mainClass": "Wrapper",
+      "projectName": "Java_745c3ce8"
+    }
+  ]
+}
