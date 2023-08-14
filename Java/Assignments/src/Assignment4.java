@@ -5,7 +5,7 @@ import java.util.Scanner;
 // El desafío es un programa que pida dos números y los muestre ordenados de mayor a menor. 
 // Podría ser utilizando operador ternario.
 
-public class FourthAssignment {
+public class Assignment4 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 

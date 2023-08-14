@@ -10,7 +10,7 @@
 
 import javax.swing.JOptionPane;
 
-public class SixthAssignment {
+public class Assignment6 {
   public static void main(String[] args) {
     String fullName1 = JOptionPane.showInputDialog("Enter the full name of the first person:");
     String fullName2 = JOptionPane.showInputDialog("Enter the full name of the second person:");

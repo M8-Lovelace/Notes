@@ -10,7 +10,8 @@
 
 import java.util.Scanner;
 
-public class EighthAssignment {
+public class Assignment8 {
+
   public static void main(String[] args) {
 
     Scanner scanner = new Scanner(System.in);

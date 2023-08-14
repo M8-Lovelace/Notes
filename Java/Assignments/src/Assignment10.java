@@ -33,7 +33,7 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 
-public class TenthAssignment {
+public class Assignment10 {
 
   public static void main(String[] args) {
     // Mostrar el menú

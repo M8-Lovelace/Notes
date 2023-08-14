@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class EleventhAssignment {
+public class Assignment11 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");

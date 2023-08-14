@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 // Crear un programa que reciba un nombre de factura, con dos productos.
 // El programa debe retornar el iva del 19% sobre el valor total de los productos
-public class SecondAssignment {
+public class Assignment2 {
   public static void main(String[] args) {
     // Instanciar Scanner
     Scanner scanner = new Scanner(System.in);

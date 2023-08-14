@@ -8,7 +8,7 @@ import java.util.Scanner;
 // Ejemplo, un resultado final esperado para los nombres Andres, Maria y Pepe podría ser:
 // N.es_A.ia_E.pe
 
-public class ThirdAssignment {
+public class Assignment3 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 

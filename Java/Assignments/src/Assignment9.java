@@ -6,7 +6,7 @@
 
 import java.util.Scanner;
 
-public class NinthAssignment {
+public class Assignment9 {
   public static void main(String[] args) {
 
     Scanner scanner = new Scanner(System.in);
