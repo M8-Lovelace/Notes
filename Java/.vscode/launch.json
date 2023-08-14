@@ -6,6 +6,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Assignment19",
+      "request": "launch",
+      "mainClass": "Assignment19",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Assignment18",
+      "request": "launch",
+      "mainClass": "Assignment18",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Matrices",
+      "request": "launch",
+      "mainClass": "Matrices",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
       "name": "ArraysExample",
       "request": "launch",
       "mainClass": "ArraysExample",
