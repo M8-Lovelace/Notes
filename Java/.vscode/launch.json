@@ -6,6 +6,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ExampleAutomobile",
+      "request": "launch",
+      "mainClass": "Poo.ClassesAndObjects.ExampleAutomobile",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "ExampleAutomobile",
+      "request": "launch",
+      "mainClass": "ExampleAutomobile",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
+      "name": "Automobil",
+      "request": "launch",
+      "mainClass": "Poo.Automobil",
+      "projectName": "Java_745c3ce8"
+    },
+    {
+      "type": "java",
       "name": "Assignment19",
       "request": "launch",
       "mainClass": "Assignment19",

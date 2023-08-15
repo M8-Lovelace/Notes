@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="usersList"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="content-character">
+      <ion-col sizeMd="4" offsetMd="4">
+        <div *ngIf="character">
+          <ion-card class="card-character">
+            <ion-card-content class="ion-text-center">
+              <img
+                class="image-character"
+                src="{{character.image}}"
+                alt="avatar"
+              />
+              <ion-card-title>{{character.name}}</ion-card-title>
+              <p>{{ character.status }}</p>
+              <p class="title">--- PROPERTIES ---</p>
+              <ion-row>
+                <ion-col>
+                  <p class="subtitle-properties">GENDER:</p>
+                </ion-col>
+                <ion-col>
+                  <p class="info-properties">{{character.gender}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p class="subtitle-properties">LOCATION:</p>
+                </ion-col>
+                <ion-col>
+                  <p class="info-properties">{{character.location.name}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p class="subtitle-properties">SPECIES:</p>
+                </ion-col>
+                <ion-col>
+                  <p class="info-properties">{{character.species}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <p class="subtitle-properties">ORIGIN:</p>
+                </ion-col>
+                <ion-col>
+                  <p class="info-properties">{{character.origin.name}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
