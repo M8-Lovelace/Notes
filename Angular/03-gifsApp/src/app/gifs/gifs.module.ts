@@ -1,20 +1,28 @@
-// Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Componentes
-import { GifsPageComponent } from './gifs-page/gifs-page.component';
-import { BusquedaComponent } from './busqueda/busqueda.component';
-import { ResultadosComponent } from './resultados/resultados.component';
+import { SharedModule } from '../shared/shared.module';
+
+import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { HomePageComponent } from './pages/home/home-page.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+
+
 
 @NgModule({
-  // Importación de los componentes
-  declarations: [GifsPageComponent, BusquedaComponent, ResultadosComponent],
-  // Exportación de los componentes
-  exports: [GifsPageComponent],
-  // Importación de módulos
-  imports: [CommonModule],
-  // Importación de servicios
-  providers: [],
+  declarations: [
+    CardComponent,
+    CardListComponent,
+    HomePageComponent,
+    SearchBoxComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule
+  ],
+  exports: [
+    HomePageComponent,
+  ]
 })
-export class GifsModule {}
+export class GifsModule { }

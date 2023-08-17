@@ -1,51 +1,74 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Gift, SearchGifsResponse } from '../interfaces/gifs.interface';
+import { SearchResponse, Gif } from '../interfaces/gifs.interfaces';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class GiftService {
-  // Datos para consultar la API
-  private urlApi = 'https://api.giphy.com/v1/gifs';
-  private apiKey: string = 'NA54KoehBQdCumgutnfhEz4nklL0mahW';
+@Injectable({ providedIn: 'root' })
+export class GifsService {
 
-  // Arreglos donde se guardarán búsquedas y resultados
-  private _historial: string[] = [];
-  public resultados: Gift[] = [];
+  public gifList: Gif[] = [];
 
-  // Retornamos el arreglo del historial, que es llamado en los componentes, pages, etc
-  get historial(): string[] {
-    return [...this._historial];
+  private _tagsHistory: string[] = [];
+  private apiKey:       string = 'NA54KoehBQdCumgutnfhEz4nklL0mahW';
+  private serviceUrl:   string = 'https://api.giphy.com/v1/gifs';
+
+  constructor( private http: HttpClient ) {
+    this.loadLocalStorage();
+    console.log('Gifs Service Ready');
   }
 
-  // Al generar la instancia del servicio, obtenemos los datos del localStorage y los asignamos
-  constructor(private http: HttpClient) {
-    // if (localStorage.getItem('historial')) {
-    //   this._historial = JSON.parse(localStorage.getItem('historial')!);
-    // }
-    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
-    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
+  get tagsHistory() {
+    return [...this._tagsHistory];
   }
 
-  // Método para actualizar el historial y los resultados
-  buscarGifs(query: string = 'The Last Kingdom', limit: number = 69): void {
-    const params = new HttpParams()
-      .set('apiKey', this.apiKey)
-      .set('limit', limit)
-      .set('q', query);
-    query = query.toLocaleLowerCase().trim();
-    if (!this._historial.includes(query)) {
-      this._historial.unshift(query);
-      this._historial = this._historial.splice(0, 10);
-      localStorage.setItem('historial', JSON.stringify(this._historial));
+  private organizeHistory(tag: string) {
+    tag = tag.toLowerCase();
+
+    if ( this._tagsHistory.includes( tag ) ) {
+      this._tagsHistory = this._tagsHistory.filter( (oldTag) => oldTag !== tag )
     }
 
-    this.http
-      .get<SearchGifsResponse>(`${this.urlApi}/search?`, { params })
-      .subscribe((resp: SearchGifsResponse) => {
-        this.resultados = resp.data;
-        localStorage.setItem('resultados', JSON.stringify(this.resultados));
-      });
+    this._tagsHistory.unshift( tag );
+    this._tagsHistory = this.tagsHistory.splice(0,10);
+    this.saveLocalStorage();
   }
+
+  private saveLocalStorage():void {
+    localStorage.setItem('history', JSON.stringify( this._tagsHistory ));
+  }
+
+  private loadLocalStorage():void {
+    if( !localStorage.getItem('history')) return;
+
+    this._tagsHistory = JSON.parse( localStorage.getItem('history')! );
+
+    if ( this._tagsHistory.length === 0 ) return;
+    this.searchTag( this._tagsHistory[0] );
+  }
+
+
+  searchTag( tag: string ):void {
+    if ( tag.length === 0 ) return;
+    this.organizeHistory(tag);
+
+    const params = new HttpParams()
+      .set('api_key', this.apiKey )
+      .set('limit', '10' )
+      .set('q', tag )
+
+    this.http.get<SearchResponse>(`${ this.serviceUrl }/search`, { params })
+      .subscribe( resp => {
+
+        this.gifList = resp.data;
+        // console.log({ gifs: this.gifList });
+
+      });
+
+
+
+
+
+
+  }
+
+
 }
